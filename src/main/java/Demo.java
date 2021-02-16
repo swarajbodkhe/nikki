@@ -1,3 +1,4 @@
+import net.andreinc.mockneat.MockNeat;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -10,6 +11,17 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class Demo {
+
+    public static String randomEmail(){
+        MockNeat m= MockNeat.old();
+        return m.emails().domain("gmail.com").val();
+    }
+
+    public static String randomName(){
+        MockNeat m= MockNeat.old();
+        return m.names().val().split(" ")[0];
+    }
+
 
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
@@ -26,15 +38,6 @@ public class Demo {
         WebElement LogIn = driver.findElement(By.xpath("(//div[contains(@class,'MuiList')])[1]//span"));
         LogIn.click();
 
-        /*try{
-            wt.until(ExpectedConditions.alertIsPresent());
-            Alert alert=driver.switchTo().alert();
-            alert.dismiss();
-            driver.switchTo().defaultContent();
-        }catch (Exception e){
-
-        }
-*/
 
         wt.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("(//div[@role='dialog']//button)[3]"))));
         WebElement ContinueWithEmail = driver.findElement(By.xpath("(//div[@role='dialog']//button)[3]"));
@@ -42,7 +45,7 @@ public class Demo {
 
         //from here
         WebElement email=driver.findElement(By.id("email"));
-        email.sendKeys("swa456444@gmail.com");
+        email.sendKeys(randomEmail());
         email.sendKeys(Keys.ENTER);
 
         WebElement pwd=driver.findElement(By.id("password"));
@@ -57,7 +60,7 @@ public class Demo {
         WebElement pref=driver.findElement(By.xpath("//button//label[text()='Select your preference']"));
 
 
-        Name.sendKeys("rubiq");
+        Name.sendKeys(randomName());
         dob.sendKeys("05/12/1992");
         gender.click();
         pref.click();

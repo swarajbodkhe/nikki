@@ -19,5 +19,14 @@
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/net.andreinc.mockneat/mockneat -->
+        <!-- https://mvnrepository.com/artifact/net.andreinc.mockneat/mockneat -->
+        <dependency>
+            <groupId>net.andreinc</groupId>
+            <artifactId>mockneat</artifactId>
+            <version>0.4.5</version>
+        </dependency>
+
+
     </dependencies>
 </project>
