@@ -24,12 +24,10 @@ public class Demo {
     }
 
 
-    public static void main(String[] args) {
+    public static void VoteNikki() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver=null;
 
-
-        for (int j = 0; j < 100; j++) {
             try{
                  driver= new ChromeDriver();
                 driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
@@ -133,9 +131,6 @@ public class Demo {
             }finally {
                 driver.quit();
             }
-        }
-
-
 
     }
 
