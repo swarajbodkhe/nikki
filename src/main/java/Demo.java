@@ -72,8 +72,16 @@ public class Demo {
         WebElement submit=driver.findElement(By.xpath("//button[text()='Submit']"));
         submit.click();
         wt.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//img[contains(@src,'closeButton')]/.."))));
-        WebElement closeup1=driver.findElement(By.xpath("//img[contains(@src,'closeButton')]/.."));
-        closeup1.sendKeys(Keys.F5);
+        WebElement closeup1=driver.findElement(By.xpath("//img[contains(@src,'closeButton')]"));
+        //Actions atc=new Actions(driver);
+        //atc.moveToElement(closeup1,5,5).click().build().perform();
+       // closeup1.click();
+        //closeup1.sendKeys(Keys.F5);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.get(driver.getCurrentUrl());
         // Till here
 
@@ -107,6 +115,13 @@ public class Demo {
                 nikki.click();
                 WebElement submitBtn=driver.findElement(By.xpath("//button[text()='Submit']"));
                 submitBtn.click();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                wt.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//p[contains(text(),'Thank You for Voting')]"))));
+
             }
         }
         driver.quit();
