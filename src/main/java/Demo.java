@@ -3,6 +3,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,9 +25,9 @@ public class Demo {
     }
 
 
-    public static void VoteNikki() {
+    public static void VoteNikki(RemoteWebDriver driver) {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        WebDriver driver=null;
+       // WebDriver driver=null;
 
             try{
                  driver= new ChromeDriver();
