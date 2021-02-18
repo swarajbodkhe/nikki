@@ -1,6 +1,7 @@
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,13 +20,24 @@ public class MyTest1 {
         rc.set(new RemoteWebDriver(new URL("http://192.168.43.73:4444/wd/hub"),capabilities));
     }
 
-        @Test(invocationCount = 5)
+        @Test(invocationCount = 2)
         public void mytest123(){
             Demo.VoteNikki(rc.get());
         }
 
-        @Test(invocationCount = 5)
+        @Test(invocationCount = 2)
         public void mytest1234(){
         Demo.VoteNikki(rc.get());
     }
+
+    @AfterMethod
+    public  void cleanup(){
+       try{
+           rc.get().quit();
+       }finally {
+
+       }
+    }
+
+
 }
