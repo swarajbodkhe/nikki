@@ -19,12 +19,12 @@ public class MyTest1 {
         rc.set(new RemoteWebDriver(new URL("http://192.168.43.73:4444/wd/hub"),capabilities));
     }
 
-        @Test
+        @Test(invocationCount = 5)
         public void mytest123(){
             Demo.VoteNikki(rc.get());
         }
 
-        @Test
+        @Test(invocationCount = 5)
         public void mytest1234(){
         Demo.VoteNikki(rc.get());
     }
