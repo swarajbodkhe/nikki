@@ -25,13 +25,13 @@ public class Demo {
     }
 
 
-    public static void VoteNikki(RemoteWebDriver driver) {
+    public static void VoteNikki() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-       // WebDriver driver=null;
+        WebDriver driver=null;
 
             try{
                  driver= new ChromeDriver();
-                driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+                driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
                 driver.get("http://www.voot.com");
                 WebDriverWait wt = new WebDriverWait(driver, 10);
 

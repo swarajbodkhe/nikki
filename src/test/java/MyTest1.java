@@ -10,33 +10,21 @@ import java.net.URL;
 
 public class MyTest1 {
 
-    ThreadLocal<RemoteWebDriver> rc;
-    @BeforeMethod
-    public void a() throws MalformedURLException {
-        rc=new ThreadLocal<>();
-        DesiredCapabilities capabilities= DesiredCapabilities.chrome();
-        capabilities.setPlatform(Platform.ANY);
-        capabilities.setBrowserName("chrome");
-        rc.set(new RemoteWebDriver(new URL("http://192.168.43.73:4444/wd/hub"),capabilities));
-    }
 
-        @Test(invocationCount = 2)
+
+        @Test(invocationCount = 30000)
         public void mytest123(){
-            Demo.VoteNikki(rc.get());
+            Demo.VoteNikki();
         }
 
-        @Test(invocationCount = 2)
+        @Test(invocationCount = 30000)
         public void mytest1234(){
-        Demo.VoteNikki(rc.get());
+        Demo.VoteNikki();
     }
 
     @AfterMethod
     public  void cleanup(){
-       try{
-           rc.get().quit();
-       }finally {
 
-       }
     }
 
 
